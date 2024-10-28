@@ -15,11 +15,13 @@ createBtn.addEventListener("click", onCreateBtnClick);
 destroyBtn.addEventListener("click", onDestroyBtnClick);
 
 function onInputChange(event) {
-  const numberOfBoxes = event.currentTarget.Value;
-  console.log("🚀  numberOfBoxes:", numberOfBoxes);
+  return event.currentTarget.value;
 }
 
-function onCreateBtnClick() {}
+function onCreateBtnClick() {
+  const numbers = onInputChange();
+  console.log("🚀  numbers:", numbers);
+}
 
 function onDestroyBtnClick() {
   containerEl.innerHTML = "";
