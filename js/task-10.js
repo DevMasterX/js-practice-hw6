@@ -10,17 +10,18 @@ const containerEl = document.querySelector("#boxes");
 
 const destroyBtn = document.querySelector("[data-destroy]");
 
+let numberOfBoxes = 0;
+
 inputEl.addEventListener("input", onInputChange);
 createBtn.addEventListener("click", onCreateBtnClick);
 destroyBtn.addEventListener("click", onDestroyBtnClick);
 
 function onInputChange(event) {
-  return event.currentTarget.value;
+  numberOfBoxes = event.currentTarget.value;
 }
 
 function onCreateBtnClick() {
-  const numbers = onInputChange();
-  console.log("🚀  numbers:", numbers);
+  createBoxes(numberOfBoxes);
 }
 
 function onDestroyBtnClick() {
@@ -38,5 +39,5 @@ function createBoxes(amount) {
 
     boxes.push(divEl);
   }
-  return boxes;
+  containerEl.append(...boxes);
 }
